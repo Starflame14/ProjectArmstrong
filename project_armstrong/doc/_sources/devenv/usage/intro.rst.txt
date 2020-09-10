@@ -1,0 +1,10 @@
+
+Usage
+^^^^^
+
+The default username and password of the Virtual Machine is ``armhackathon``.
+Using the development environment provided requires minimal Linux user skills.
+
+For development purposes the Eclipse based Arm Development Studio IDE is
+installed into the VM.
+

@@ -1,0 +1,9 @@
+
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+Should this section not cover an error you encounter or you have something
+which does not match what is described below please don't hesitate to contact
+us at `info@projectarmstrong.hu <mailto:info@projectarmstrong.hu>`_.
+Remember, chasing something which is out-of-scope is not productive.
+

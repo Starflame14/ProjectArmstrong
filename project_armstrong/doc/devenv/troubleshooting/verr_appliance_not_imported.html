@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VirtualBox: Appliance import failed &mdash; Project Armstrong  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Project Armstrong
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../story.html">Landing on Europa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_fvp.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../system.html">System overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c_project.html">Example C project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulator.html">Python based landing simulator</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Project Armstrong</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>VirtualBox: Appliance import failed</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/devenv/troubleshooting/verr_appliance_not_imported.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="virtualbox-appliance-import-failed">
+<h1>VirtualBox: Appliance import failed<a class="headerlink" href="#virtualbox-appliance-import-failed" title="Permalink to this headline">¶</a></h1>
+<p>If for some reason the import of the appliance (<code class="docutils literal notranslate"><span class="pre">.ova</span></code>) file failed because
+some other reasons than the ones discussed above, you can still try to add
+the virtual machine image manually. To do this, first you have to download
+the image using
+<a class="reference external" href="https://www.projectarmstrong.hu/app/data/2020/arm_hackathon_zip.torrent">this torrent</a>.
+Unpack its content and you will have an <code class="docutils literal notranslate"><span class="pre">arm_hackathon</span></code> folder with several
+files inside.</p>
+<p>Start <code class="docutils literal notranslate"><span class="pre">VirtualBox®</span></code> and click <code class="docutils literal notranslate"><span class="pre">Machine</span> <span class="pre">-&gt;</span> <span class="pre">Add...</span></code> or press <code class="docutils literal notranslate"><span class="pre">CTRL+A</span></code>.
+Select the <code class="docutils literal notranslate"><span class="pre">arm_hackathon.vbox</span></code> file from the previously mentioned
+<code class="docutils literal notranslate"><span class="pre">arm_hackathon</span></code> folder. Click <code class="docutils literal notranslate"><span class="pre">Open</span></code>.</p>
+<p>A new virtual machine <code class="docutils literal notranslate"><span class="pre">arm_hackathon</span></code> will be created.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, ARM CE-OSS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

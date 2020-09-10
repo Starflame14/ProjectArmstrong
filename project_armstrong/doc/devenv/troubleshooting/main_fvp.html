@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Troubleshooting &mdash; Project Armstrong  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="System overview" href="../../system.html" />
+    <link rel="prev" title="Usage" href="../usage/main_fvp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Project Armstrong
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../story.html">Landing on Europa</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../getting_started_fvp.html">Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../main.html">Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/main.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/main_fvp.html">Usage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#virtualbox-e-invalidarg-0x80070057">VirtualBox: E_INVALIDARG (0x80070057)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualbox-verr-nem-vm-create-failed">VirtualBox: VERR_NEM_VM_CREATE_FAILED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualbox-verr-vm-driver-not-installed">VirtualBox: VERR_VM_DRIVER_NOT_INSTALLED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualbox-appliance-import-failed">VirtualBox: Appliance import failed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../system.html">System overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c_project.html">Example C project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulator.html">Python based landing simulator</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Project Armstrong</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../getting_started_fvp.html">Getting started</a> &raquo;</li>
+        
+      <li>Troubleshooting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/devenv/troubleshooting/main_fvp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>Should this section not cover an error you encounter or you have something
+which does not match what is described below please don’t hesitate to contact
+us at <a class="reference external" href="mailto:info&#37;&#52;&#48;projectarmstrong&#46;hu">info<span>&#64;</span>projectarmstrong<span>&#46;</span>hu</a>.
+Remember, chasing something which is out-of-scope is not productive.</p>
+<div class="section" id="virtualbox-e-invalidarg-0x80070057">
+<h2>VirtualBox: E_INVALIDARG (0x80070057)<a class="headerlink" href="#virtualbox-e-invalidarg-0x80070057" title="Permalink to this headline">¶</a></h2>
+<p>This error message usually encountered during <a class="reference external" href="#step-2---importing-the-virtual-machine">importing the virtual machine</a>.
+It is an unresolved error. Please try to reboot your machine after installing operating system updates.
+If the error is persistent, please contact us.</p>
+</div>
+<div class="section" id="virtualbox-verr-nem-vm-create-failed">
+<h2>VirtualBox: VERR_NEM_VM_CREATE_FAILED<a class="headerlink" href="#virtualbox-verr-nem-vm-create-failed" title="Permalink to this headline">¶</a></h2>
+<p>There are mainly two reasons for this:</p>
+<ul class="simple">
+<li><p><strong>VT-x/AMD-V is not enabled</strong>: please reboot your machine and enter BIOS.
+Check that you have <code class="docutils literal notranslate"><span class="pre">VT-x/AMD-V</span></code> enabled.</p></li>
+<li><p><strong>Running on Windows Hyper-V is enabled</strong>: you need to disable Hyper-V.
+Follow the instructions described <a class="reference external" href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-the-hyper-v-role-through-settings">here</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="virtualbox-verr-vm-driver-not-installed">
+<h2>VirtualBox: VERR_VM_DRIVER_NOT_INSTALLED<a class="headerlink" href="#virtualbox-verr-vm-driver-not-installed" title="Permalink to this headline">¶</a></h2>
+<p>Encountered on Ubuntu 19.04.
+This is a very unlikely and unfortunate situation.</p>
+<a class="reference internal image-reference" href="../../_images/error_01.png"><img alt="Missing file!" class="align-center" src="../../_images/error_01.png" style="width: 80%;" /></a>
+<p>Drop to console and run the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo /sbin/vboxconfig
+</pre></div>
+</div>
+<p>The command is expected to fail and prints something like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vboxdrv.sh: failed: Look at /var/log/vbox-setup.log to find out what went wrong.
+</pre></div>
+</div>
+<p>Now look into the log file and try to find the first error message:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat /var/log/vbox-setup.log <span class="p">|</span> grep -m1 <span class="s2">&quot;error:&quot;</span>
+</pre></div>
+</div>
+<p>If the error message is something like <code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">unknown</span> <span class="pre">type</span> <span class="pre">name</span> <span class="pre">‘__uint128_t’</span></code>
+or very similar it might mean that you have to install Linux kernel headers.
+You can check it by running the command below.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls /usr/src/linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span> &gt;/dev/null
+ls: cannot access <span class="s1">&#39;/usr/src/linux-headers-5.0.0-38-generic&#39;</span>: No such file or directory
+</pre></div>
+</div>
+<p>If it says so like above you should install the missing headers:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span>
+</pre></div>
+</div>
+<p>Now try to configure VirtualBox® once again:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo /sbin/vboxconfig
+</pre></div>
+</div>
+<p>It should succeed this time and your system is ready to run the development
+environment.</p>
+</div>
+<div class="section" id="virtualbox-appliance-import-failed">
+<h2>VirtualBox: Appliance import failed<a class="headerlink" href="#virtualbox-appliance-import-failed" title="Permalink to this headline">¶</a></h2>
+<p>If for some reason the import of the appliance (<code class="docutils literal notranslate"><span class="pre">.ova</span></code>) file failed because
+some other reasons than the ones discussed above, you can still try to add
+the virtual machine image manually. To do this, first you have to download
+the image using
+<a class="reference external" href="https://www.projectarmstrong.hu/app/data/2020/arm_hackathon_zip.torrent">this torrent</a>.
+Unpack its content and you will have an <code class="docutils literal notranslate"><span class="pre">arm_hackathon</span></code> folder with several
+files inside.</p>
+<p>Start <code class="docutils literal notranslate"><span class="pre">VirtualBox®</span></code> and click <code class="docutils literal notranslate"><span class="pre">Machine</span> <span class="pre">-&gt;</span> <span class="pre">Add...</span></code> or press <code class="docutils literal notranslate"><span class="pre">CTRL+A</span></code>.
+Select the <code class="docutils literal notranslate"><span class="pre">arm_hackathon.vbox</span></code> file from the previously mentioned
+<code class="docutils literal notranslate"><span class="pre">arm_hackathon</span></code> folder. Click <code class="docutils literal notranslate"><span class="pre">Open</span></code>.</p>
+<p>A new virtual machine <code class="docutils literal notranslate"><span class="pre">arm_hackathon</span></code> will be created.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../system.html" class="btn btn-neutral float-right" title="System overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../usage/main_fvp.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, ARM CE-OSS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

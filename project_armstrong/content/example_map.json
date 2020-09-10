@@ -1,0 +1,16 @@
+{
+	"map": "content/example_map.png",
+	"imu": {
+		"position": {"x": 0.0, "y": 110.0 },
+		"velocity": {"x": 20.0, "y": 0.0},
+		"gravity": -0.162,
+		"angle": 0.0
+	},
+	"landing_zones": [
+		{"x": 14, "value": 2},
+		{"x": 75, "value": 1},
+		{"x": 456, "value": 3},
+		{"x": 496, "value": 4}
+	],
+	"max_ticks": 200
+}

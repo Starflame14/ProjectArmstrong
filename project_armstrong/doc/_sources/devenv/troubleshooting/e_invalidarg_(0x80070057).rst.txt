@@ -1,0 +1,8 @@
+
+VirtualBox: E_INVALIDARG (0x80070057)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This error message usually encountered during `importing the virtual machine <#step-2---importing-the-virtual-machine>`_.
+It is an unresolved error. Please try to reboot your machine after installing operating system updates.
+If the error is persistent, please contact us.
+

@@ -1,0 +1,18 @@
+Development Environment
+-----------------------
+
+A virtual machine has been prepared containing all the fundamental tools you
+need for the development process.
+The default import settings are expected to work just fine.
+
+The following sections describe how to
+
+
+* :ref:`install <installation>`,
+* :ref:`use <usage>`,
+* :ref:`troubleshoot <troubleshooting>`,
+
+the development environment created exclusively for the mission.
+
+Should you have any further questions or suggestions please don't hesitate to
+contact us at `info@projectarmstrong.hu <mailto:info@projectarmstrong.hu>`_.

@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>System overview &mdash; Project Armstrong  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example C project" href="c_project.html" />
+    <link rel="prev" title="Troubleshooting" href="devenv/troubleshooting/main_fvp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Project Armstrong
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story.html">Landing on Europa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_fvp.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">System overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#components">Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#real-world">Real world</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulator">Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#communication-flow">Communication flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packet-format">Packet format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numeric-format">Numeric format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packet-types">Packet types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#map"><code class="docutils literal notranslate"><span class="pre">MAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#landing-zones"><code class="docutils literal notranslate"><span class="pre">LANDING_ZONES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initial-imu-state"><code class="docutils literal notranslate"><span class="pre">INITIAL_IMU_STATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-landing"><code class="docutils literal notranslate"><span class="pre">START_LANDING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imu-update"><code class="docutils literal notranslate"><span class="pre">IMU_UPDATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-thrust"><code class="docutils literal notranslate"><span class="pre">SET_THRUST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error"><code class="docutils literal notranslate"><span class="pre">ERROR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conditions-of-successful-landing">Conditions of successful landing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#score-formula">Score formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-development">Starting development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-links">Useful links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c_project.html">Example C project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulator.html">Python based landing simulator</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project Armstrong</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>System overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/system.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="system-overview">
+<h1>System overview<a class="headerlink" href="#system-overview" title="Permalink to this headline">¶</a></h1>
+<p>This section contains a detailed specification of the landing procedure, the
+components of the system and some other fun stuff.</p>
+<p>If you need some inspiration for the contest just have a look on this well
+implemented landing.</p>
+<a class="reference internal image-reference" href="_images/landing.gif"><img alt="Missing file!" class="align-center" src="_images/landing.gif" style="width: 100%;" /></a>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="real-world">
+<h3>Real world<a class="headerlink" href="#real-world" title="Permalink to this headline">¶</a></h3>
+<p>The spacecraft we intend to land has an Arm Cortex-M0 based guidance computer.
+This computer communicates with the spacecraft’s peripherals over its UART port.</p>
+<p class="plantuml">
+<img src="_images/plantuml-81f42f6bda4200daf18c54533b9ec3b8566d47f5.png" alt="&#64;startuml
+
+frame &quot;Guidance computer&quot; {
+	rectangle &quot;Cortex-M0&quot; as cm0
+	rectangle &quot;UART0&quot; as uart0
+}
+
+frame &quot;Spacecraft&quot; {
+	rectangle &quot;Spacecraft interface&quot; as sci
+	rectangle &quot;IMU&quot; as imu
+	rectangle &quot;Engines&quot; as engines
+}
+
+cm0 &lt;-right-&gt; uart0 : Internal bus
+uart0 &lt;-right-&gt; sci : UART
+
+sci &lt;-down- imu
+sci -down-&gt; engines
+
+&#64;enduml
+"/>
+</p>
+<p>Before landing the computer is able to query</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the height map of the landing zone,</p></li>
+<li><p>the position and value of four possible landing zones,</p></li>
+<li><p>the complete inertial state of the spacecraft.</p></li>
+</ul>
+</div></blockquote>
+<p>After the landing has started the spacecraft can only measure its acceleration
+and angular acceleration.  It can affect these values by controlling the
+engines, so in other words the spacecraft can rotate around its center and
+accelerate towards its nose. By combining these actuators properly the matter of
+landing is not rocket science. I mean… it is.</p>
+<p>The principles of the landing:</p>
+<blockquote>
+<div><ul>
+<li><p>The landing happens in a two dimensional system</p></li>
+<li><p>Coordinates</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The coordinates are Cartesian coordinates</p></li>
+<li><p>The origin is in the bottom left corner of the landing map</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Angles</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The angles are in radians</p></li>
+<li><p>The zero angle is in the direction of the positive X axis</p></li>
+<li><p>The positive angle direction is counter-clockwise</p></li>
+<li><p>The angle indicates the direction of the nose of the spacecraft</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The acceleration and velocity vectors are in the world coordinate system
+(<strong>not</strong> relative to the angle of the spacecraft)</p></li>
+<li><p>The mass of the spacecraft can be considered constant during landing</p></li>
+<li><p>The gravity can be considered constant during landing</p></li>
+<li><p>The thrust applied to the rocket accelerates it towards its nose</p></li>
+<li><p>The rotational thrust applied to the rocket changes its angular speed</p></li>
+</ul>
+</div></blockquote>
+<a class="reference internal image-reference" href="_images/coordinate_system.png"><img alt="Missing file!" class="align-center" src="_images/coordinate_system.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="simulator">
+<h3>Simulator<a class="headerlink" href="#simulator" title="Permalink to this headline">¶</a></h3>
+<p>As we cannot do real-world tests against our landing software we must use a
+simulator. The Arm Fixed Virtual Platform (FVP) is used as a model of the
+guidance computer. It emulated a Cortex-M0 core and its peripherals. A handy
+feature of the FVP is its capability of make its UART interfaces to work as TCP
+ports in the outside world. An external script is then used to connecte to the
+TCP port and simulate real spacecraft’s behaviour.</p>
+<p class="plantuml">
+<img src="_images/plantuml-189d0cd5646a5a83322d7e86879118a0c531c250.png" alt="&#64;startuml
+
+frame &quot;FVP&quot; {
+	frame &quot;Guidance computer&quot; {
+		rectangle &quot;Cortex-M0&quot; as cm0
+		rectangle &quot;UART0&quot; as uart0
+	}
+	rectangle &quot;UART-TCP converter&quot; as utc
+}
+
+frame &quot;Simulator&quot; {
+	rectangle &quot;Spacecraft interface&quot; as sci
+	rectangle &quot;Spacecraft simulator&quot; as ss
+}
+
+cm0 &lt;-right-&gt; uart0 : Internal bus
+uart0 &lt;-down-&gt; utc : UART
+
+utc &lt;-right-&gt; sci : TCP
+sci &lt;-right-&gt; ss
+
+&#64;enduml
+"/>
+</p>
+<p>Basically from the perspective of the landing software the FVP based simulator
+environment should look the same in every aspect as the real-world landing for
+the ELM.</p>
+</div>
+</div>
+<div class="section" id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="communication-flow">
+<h3>Communication flow<a class="headerlink" href="#communication-flow" title="Permalink to this headline">¶</a></h3>
+<p>Communication is request-response based where the landing software sends an
+request and the spacecraft (or simulator) sends the response. The response
+always has the same message type as the request except on error (invalid type or
+checksum error) when an error response is sent.</p>
+<p><strong>The maximum amount of time between messages is</strong> <code class="docutils literal notranslate"><span class="pre">5</span></code> seconds. If this value
+is exceeded by the landing software the connection will be interrupted and the
+round stops.</p>
+<p class="plantuml">
+<img src="_images/plantuml-26cc526f8f13c4e3ed3f0ad1d2b23f8ff22f8700.png" alt="&#64;startuml
+
+start
+
+partition Handshake {
+	repeat
+	    :Receive packet;
+		if (MAP) then (yes)
+		  :Send map;
+		elseif (LANDING_ZONES) then (yes)
+		  :Send landing
+		  zones;
+		elseif (INITIAL_IMU_STATE) then (yes)
+		  :Send initial
+		  inertial state;
+		elseif (START_LANDING) then (yes)
+		  :Send
+		  acknowledge;
+		else (Any other message type)
+		  :Send error
+		  message;
+		endif
+	repeat while (START_LANDING) is (no)
+}
+
+partition Landing {
+	repeat
+		:Receive packet;
+		if (IMU_UPDATE) then (yes)
+		  :Send new
+		  IMU values;
+		elseif (SET_THRUST) then (yes)
+		  :Update IMU;
+		  :Increment tick;
+		  :Send
+		  acknowledge;
+		else (Any other message type)
+		  :Send error
+		  message;
+		endif
+	repeat while (Has landed) is (no)
+}
+
+stop
+
+&#64;enduml
+"/>
+</p>
+<p>An example communication flow could look like this:</p>
+<ol class="arabic simple">
+<li><p>Query map</p></li>
+<li><p>Query landing zones</p></li>
+<li><p>Query initial inertial state</p></li>
+<li><p>Send start landing command (end of handshake)</p></li>
+<li><p>Repeat steps below while not landed</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Send set thrust command</p></li>
+<li><p>Query IMU update</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="packet-format">
+<h3>Packet format<a class="headerlink" href="#packet-format" title="Permalink to this headline">¶</a></h3>
+<p>Each packet has three fields:</p>
+<ul class="simple">
+<li><p>Message type: Single byte which identifies the message type and the structure
+of data field.</p></li>
+<li><p>Data field: Contains zero to multiple bytes.</p></li>
+<li><p>Checksum: Single byte which is the inverted XOR-ed value of all previous bytes
+of the packet. In other words the whole packet (including the checksum) XOR-ed
+should result <code class="docutils literal notranslate"><span class="pre">0xff</span></code>.</p></li>
+</ul>
+<p>For more information see
+<a class="reference internal" href="simulator.html#game.lunarlander.lunarlander.LunarLander.Packet" title="game.lunarlander.lunarlander.LunarLander.Packet"><code class="xref py py-class docutils literal notranslate"><span class="pre">game.lunarlander.lunarlander.LunarLander.Packet</span></code></a>.</p>
+</div>
+<div class="section" id="numeric-format">
+<h3>Numeric format<a class="headerlink" href="#numeric-format" title="Permalink to this headline">¶</a></h3>
+<p>The numbers are represented as 16 bit signed fixed point values where the
+integer part’s length is 10 bits and the fractional part has 6 bits. This format
+is ofter referenced as <cite>Scalar</cite>. These values are sent in <strong>little-endian</strong> byte
+order.</p>
+<p>For more information see
+<a class="reference internal" href="simulator.html#game.lunarlander.lunarlander.LunarLander.Scalar" title="game.lunarlander.lunarlander.LunarLander.Scalar"><code class="xref py py-class docutils literal notranslate"><span class="pre">game.lunarlander.lunarlander.LunarLander.Scalar</span></code></a></p>
+<p><cite>Vectors</cite> are two dimensional and represented by two <cite>Scalars</cite> in the order of X
+and Y.</p>
+</div>
+<div class="section" id="packet-types">
+<h3>Packet types<a class="headerlink" href="#packet-types" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="map">
+<h4><code class="docutils literal notranslate"><span class="pre">MAP</span></code><a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h4>
+<p>Queries the map of the landing area.</p>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x00</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x00</span></code></p></li>
+<li><p>Data format: 512 bytes of height data. <code class="docutils literal notranslate"><span class="pre">data[x]</span></code> indicates the height of
+the ground at the given <code class="docutils literal notranslate"><span class="pre">x</span></code> coordinate. This is the only packet where raw
+the 8 bit value is used instead of the <cite>Scalar</cite> format.</p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="landing-zones">
+<h4><code class="docutils literal notranslate"><span class="pre">LANDING_ZONES</span></code><a class="headerlink" href="#landing-zones" title="Permalink to this headline">¶</a></h4>
+<p>Queries the landing zones and maximum tick count.</p>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x01</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x01</span></code></p></li>
+<li><p>Data format:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Four landing zones represented by these fields repeated four times</p>
+<ul>
+<li><p>X coordinate (<cite>Scalar</cite>)</p></li>
+<li><p>Value of the landing zone (<cite>Scalar</cite>)</p></li>
+</ul>
+</li>
+<li><p>Maximal number of ticks available for landing on any of the landing
+zones (<cite>Scalar</cite>)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="initial-imu-state">
+<h4><code class="docutils literal notranslate"><span class="pre">INITIAL_IMU_STATE</span></code><a class="headerlink" href="#initial-imu-state" title="Permalink to this headline">¶</a></h4>
+<p>Queries the initial inertial state.</p>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x02</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x02</span></code></p></li>
+<li><p>Data format:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Position (<cite>Vector</cite>)</p></li>
+<li><p>Velocity (<cite>Vector</cite>)</p></li>
+<li><p>Acceleration (<cite>Vector</cite>): The Y Scalar contains the value of gravity as no
+thrust is applied at the beginning.</p></li>
+<li><p>Angle (<cite>Scalar</cite>)</p></li>
+<li><p>Angular speed (<cite>Scalar</cite>)</p></li>
+<li><p>Angular acceleration (<cite>Scalar</cite>)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="start-landing">
+<h4><code class="docutils literal notranslate"><span class="pre">START_LANDING</span></code><a class="headerlink" href="#start-landing" title="Permalink to this headline">¶</a></h4>
+<p>Indicates that the guidance computer is ready for landing as it has finished
+handshake phase and starts the landing phase.</p>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x03</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x03</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="imu-update">
+<h4><code class="docutils literal notranslate"><span class="pre">IMU_UPDATE</span></code><a class="headerlink" href="#imu-update" title="Permalink to this headline">¶</a></h4>
+<p>Queries the differencial inertial values: the acceleration vector and
+the angular acceleration.</p>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x04</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x04</span></code></p></li>
+<li><p>Data format:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Acceleration (<cite>Vector</cite>)</p></li>
+<li><p>Angular acceleration (<cite>Scalar</cite>)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="set-thrust">
+<h4><code class="docutils literal notranslate"><span class="pre">SET_THRUST</span></code><a class="headerlink" href="#set-thrust" title="Permalink to this headline">¶</a></h4>
+<p>Sets the thrust values and increments the tick index. This message updates the
+IMU. Following steps happen on the processing of this message.</p>
+<ol class="arabic simple">
+<li><p>Limiting thrust values into the valid range</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span> <span class="pre">&lt;=</span> <span class="pre">main_thrust</span> <span class="pre">&lt;=</span> <span class="pre">8.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1.0</span> <span class="pre">&lt;=</span> <span class="pre">rotational_thurst</span> <span class="pre">&lt;=</span> <span class="pre">1.0</span></code></p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Applying rotational thrust</p>
+<ol class="loweralpha simple">
+<li><p>Set angular acceleration</p></li>
+<li><p>Adjust angular speed by angular acceleration</p></li>
+<li><p>Adjust angle by angular speed</p></li>
+</ol>
+</li>
+<li><p>Applying main thrust</p>
+<ol class="loweralpha simple">
+<li><p>Set acceleration in the direction of the previously calculated angle</p></li>
+<li><p>Adjust velocity by the acceleration</p></li>
+<li><p>Adjust positition by the velocity</p></li>
+</ol>
+</li>
+</ol>
+<p>Making a long story short first the angle is set then the position using the new
+angle an the thrust. For more information see
+<a class="reference internal" href="simulator.html#game.lunarlander.lunarlander.LunarLander.Imu.tick" title="game.lunarlander.lunarlander.LunarLander.Imu.tick"><code class="xref py py-meth docutils literal notranslate"><span class="pre">game.lunarlander.lunarlander.LunarLander.Imu.tick()</span></code></a></p>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x05</span></code></p></li>
+<li><p>Data format:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Main thrust (<cite>Scalar</cite>)</p></li>
+<li><p>Rotational thrust (<cite>Scalar</cite>)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0x05</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="error">
+<h4><code class="docutils literal notranslate"><span class="pre">ERROR</span></code><a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p><strong>Request</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0xff</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type value: <code class="docutils literal notranslate"><span class="pre">0xff</span></code></p></li>
+<li><p>Checksum</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="conditions-of-successful-landing">
+<h2>Conditions of successful landing<a class="headerlink" href="#conditions-of-successful-landing" title="Permalink to this headline">¶</a></h2>
+<p>All the following conditions should be met by the landing software otherwise the
+round will get zero as score.</p>
+<ul>
+<li><p><strong>Landing velocity:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Horizontal: <code class="docutils literal notranslate"><span class="pre">-0.5</span> <span class="pre">&lt;=</span> <span class="pre">velocity_x</span> <span class="pre">&lt;=</span> <span class="pre">0.5</span></code></p></li>
+<li><p>Vertical: <code class="docutils literal notranslate"><span class="pre">-1.0</span> <span class="pre">&lt;=</span> <span class="pre">velocity_y</span> <span class="pre">&lt;=</span> <span class="pre">0.0</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Landing angle:</strong> <code class="docutils literal notranslate"><span class="pre">(90</span> <span class="pre">-</span> <span class="pre">15)</span> <span class="pre">&lt;=</span> <span class="pre">angle</span> <span class="pre">&lt;=</span> <span class="pre">(90</span> <span class="pre">+</span> <span class="pre">15)</span></code> in degrees (note: the
+angles are in radians in the system)</p></li>
+<li><p><strong>Landing zone</strong>:
+<code class="docutils literal notranslate"><span class="pre">(landing_zone_x</span> <span class="pre">-</span> <span class="pre">2.0)</span> <span class="pre">&lt;=</span> <span class="pre">position_x</span> <span class="pre">&lt;=</span> <span class="pre">(landing_zone_x</span> <span class="pre">+</span> <span class="pre">2.0)</span></code></p></li>
+<li><p><strong>Tick count</strong>: <code class="docutils literal notranslate"><span class="pre">tick_count</span> <span class="pre">&lt;</span> <span class="pre">maximal_tick_count</span></code></p></li>
+<li><p><strong>Time</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The maximum amount of runtime for the landing is <code class="docutils literal notranslate"><span class="pre">10</span></code> seconds</p></li>
+<li><p>The maximum idle time between messages is <code class="docutils literal notranslate"><span class="pre">5</span></code> seconds</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>For more information see
+<a class="reference internal" href="simulator.html#game.lunarlander.lunarlander.LunarLander.evaluate_landing" title="game.lunarlander.lunarlander.LunarLander.evaluate_landing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">game.lunarlander.lunarlander.LunarLander.evaluate_landing()</span></code></a>.</p>
+<a class="reference internal image-reference" href="_images/landing_zone.png"><img alt="Missing file!" class="align-center" src="_images/landing_zone.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="score-formula">
+<h2>Score formula<a class="headerlink" href="#score-formula" title="Permalink to this headline">¶</a></h2>
+<p>The score formula has three components.</p>
+<ul>
+<li><p>Distance from landing zone: linear between the following X coordinates</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position_x</span> <span class="pre">==</span> <span class="pre">landing_zone_x</span> <span class="pre">-</span> <span class="pre">2.0</span></code>: 0 points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">position_x</span> <span class="pre">==</span> <span class="pre">landing_zone_x</span></code>: 100 points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">position_x</span> <span class="pre">==</span> <span class="pre">landing_zone_x</span> <span class="pre">+</span> <span class="pre">2.0</span></code>: 0 points</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Ticks took the land: linear between the following tick counts</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tick_count</span> <span class="pre">==</span> <span class="pre">0</span></code>: 100 points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tick_count</span> <span class="pre">==</span> <span class="pre">max_tick_count</span></code>: 0 points</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Then the tick component is multiplied by the value of the landing zone. The
+theoretical maximum is <code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">+</span> <span class="pre">(70</span> <span class="pre">*</span> <span class="pre">landing_zone_value)</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">score_distance</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">distance_from_landing_zone</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">score_tick</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_ticks</span> <span class="o">-</span> <span class="n">tick_count</span><span class="p">)</span> <span class="o">/</span> <span class="n">max_ticks</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">score</span> <span class="o">=</span> <span class="n">score_distance</span> <span class="o">*</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="p">(</span><span class="n">score_tick</span> <span class="o">*</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="n">landing_zone_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-development">
+<h2>Starting development<a class="headerlink" href="#starting-development" title="Permalink to this headline">¶</a></h2>
+<p>First you should compile the example project as it’s described in
+<a class="reference internal" href="c_project.html"><span class="doc">Example C project</span></a>. This step results in a binary that prints a message to the VGA
+console and goes into an endless loop in the main function.</p>
+<p>Of course you need more to land the spacecraft so the next step would be to
+implement the communication protocol and the landing algorithm.</p>
+<p>For testing you use the <a class="reference internal" href="simulator.html"><span class="doc">Python based landing simulator</span></a>. Feel free to create new maps and
+configurations to be able to test corner cases. The final tests will run on the
+spacecraft after you upload your landing software. However the test cases are
+classified and not available for the developers.</p>
+</div>
+<div class="section" id="useful-links">
+<h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0479c/DDI0479C_cortex_m_system_design_kit_r1p0_trm.pdf">Cortex-M System Design Kit</a></p></li>
+<li><p><a class="reference external" href="https://developer.arm.com/tools-and-software/simulation-models/fixed-virtual-platforms/docs">Fixed Virtual Platforms (FVP) Documentation</a></p></li>
+<li><p><a class="reference external" href="https://developer.arm.com/ip-products/processors/cortex-m/cortex-m0/docs">Cortex M0 Documentation</a></p></li>
+<li><p><a class="reference external" href="https://developer.arm.com/tools-and-software/embedded/arm-development-studio">Arm Development Studio Documentation</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Copyright (c) 2020, Arm Limited. All rights reserved.</em></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="c_project.html" class="btn btn-neutral float-right" title="Example C project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="devenv/troubleshooting/main_fvp.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, ARM CE-OSS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

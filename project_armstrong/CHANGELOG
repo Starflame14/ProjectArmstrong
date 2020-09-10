@@ -1,0 +1,21 @@
+CHANGELOG
+=========
+
+v1.0
+----
+
+Initial version
+
+
+v1.1
+----
+
+Changing python to python3 in run.sh
+
+
+v1.2
+----
+
+Moving telnetterminal1-2 ports from 6000 and 7000 to 5100 and 5200.
+This fixes the ARM DS debugger connection failure as it also tried to use
+port 7000.

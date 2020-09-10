@@ -1,0 +1,87 @@
+Example C project
+=================
+
+This section describes the contents of :code:`project` directory.
+
+* :code:`startup/startup.S`: This assembly file contains the vector table,
+  DATA and BSS initialization and a minimal startup code.
+* :code:`startup/system_init.c`: This file is a placeholder for your
+  initialization code.
+* :code:`fvp.ld`: This is the linker script which describes the memory layout
+  of the microcontroller.
+* :code:`drivers/*`: minimal drivers for some peripherals: interrupt and vga.
+* :code:`rocket/main.c`: This is the placeholder of your :code:`main`
+  implementation.
+
+With the VGA driver you can print debug messages or draw something nice to the
+FVP UI display.
+
+Startup call chain
+^^^^^^^^^^^^^^^^^^
+
+After the microcontoller performs a reset it starts executing the code found in
+:code:`startup/startup.S`. Once DATA and BSS are initialized
+:code:`SystemInit()` in :code:`startup/system_init.c` is called. Finally,
+your :code:`main()` implementation in :code:`rocket/main.c` is executed.
+
+How to build the project
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Building the project is simple with the provided Makefile and the
+pre-configured environment. Open a console, navigate to the :code:`project`
+folder and type the following commands.
+
+.. code-block:: bash
+
+  $ cd project
+  $ make -j4
+
+The build is expected to succeed and produces the following important build
+artifacts:
+
+  * rocket.bin
+  * rocket.elf
+
+Should you need to clean all the build artifacts use the commands below.
+
+.. code-block:: bash
+
+  $ cd project
+  $ make clean
+
+Configuring UART
+^^^^^^^^^^^^^^^^
+
+UART0 is used to communicate with the spacecraft/simulator. **The UART
+peripheral's** ``BAUDDIV`` **register must be set to** ``0xff`` in order be in
+sync with the system.
+
+It is up to you to implement the UART driver. You can find links to useful
+resources in the next section.
+
+Useful Links
+^^^^^^^^^^^^
+
+`Fixed Virtual Platforms FVP Reference Guide
+<https://developer.arm.com/docs/100966/latest/>`_
+
+`Cortex-M System Design Kit (CMSDK)
+<https://developer.arm.com/ip-products/subsystem/corstone-foundation-ip/cortex-m-system-design-kit>`_
+
+`Cortex-M System Design Kit Technical Reference Manual
+<http://infocenter.arm.com/help/topic/com.arm.doc.ddi0479c/DDI0479C_cortex_m_system_design_kit_r1p0_trm.pdf?_ga=2.70414680.955326918.1585047230-367628996.1563815131>`_
+
+Notes
+^^^^^
+
+The memory map of UART0 can be found in the FVP manual. Be careful to look at
+the layout for MPS2 and not the ones for Base or VExpress.
+
+`MPS2 - memory map for models with the ARMv8-M additions
+<https://developer.arm.com/docs/dui0837/k/programming-reference-for-mps2-fvps/mps2-memory-maps/mps2-memory-map-for-models-with-the-armv8-m-additions>`_
+
+The register descriptions of UART0 peripheral can be found in CMSDK.
+
+--------------
+
+*Copyright (c) 2020, Arm Limited. All rights reserved.*

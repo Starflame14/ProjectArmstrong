@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; Project Armstrong  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Usage" href="../usage/main_fvp.html" />
+    <link rel="prev" title="Development Environment" href="../main.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Project Armstrong
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../story.html">Landing on Europa</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../getting_started_fvp.html">Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../main.html">Development Environment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-installing-virtualbox">Step 1 - Installing VirtualBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-importing-the-virtual-machine">Step 2 - Importing the virtual machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-starting-the-virtual-machine">Step 3 - Starting the virtual machine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/main_fvp.html">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/main_fvp.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../system.html">System overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c_project.html">Example C project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulator.html">Python based landing simulator</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Project Armstrong</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../getting_started_fvp.html">Getting started</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/devenv/installation/main.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Read on to learn all you need to do to kickstart the environment.
+Just for the reference, the following step-by-step guide was tested on</p>
+<ul class="simple">
+<li><p>Ubuntu 19.04,</p></li>
+<li><p>macOS Catalina 10.15.3 and</p></li>
+<li><p>Windows 10</p></li>
+</ul>
+<p>platforms.</p>
+<div class="section" id="step-1-installing-virtualbox">
+<h2>Step 1 - Installing VirtualBox<a class="headerlink" href="#step-1-installing-virtualbox" title="Permalink to this headline">¶</a></h2>
+<p>Get <a class="reference external" href="https://download.virtualbox.org/virtualbox/6.0.16/">ORACLE® VM VirtualBox® version 6.0.16</a>
+for your preferred platform and follow the installation instructions.
+It is advised to use installers, if available.</p>
+<p>You are <strong>not</strong> required to install <code class="docutils literal notranslate"><span class="pre">Oracle®</span> <span class="pre">VM</span> <span class="pre">VirtualBox®</span> <span class="pre">Extension</span> <span class="pre">Pack</span></code> for
+the base setup. Of course, you can install it if you wish so but make sure you
+read and understand its
+<a class="reference external" href="https://www.virtualbox.org/wiki/VirtualBox_PUEL">license</a>.</p>
+</div>
+<div class="section" id="step-2-importing-the-virtual-machine">
+<h2>Step 2 - Importing the virtual machine<a class="headerlink" href="#step-2-importing-the-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>After <code class="docutils literal notranslate"><span class="pre">VirtualBox®</span></code> installed, download the appliance file using the following
+<a class="reference external" href="https://www.projectarmstrong.hu/app/data/2020/arm_hackathon_ova.torrent">torrent file</a>.</p>
+<p>Start <code class="docutils literal notranslate"><span class="pre">VirtualBox®</span></code> and click <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Import</span> <span class="pre">Appliance...</span></code> or press <code class="docutils literal notranslate"><span class="pre">CTRL+I</span></code>.
+You should see a window similar to the one in the image below.
+There is no need to go <code class="docutils literal notranslate"><span class="pre">Expert</span> <span class="pre">Mode</span></code>, just saying.</p>
+<a class="reference internal image-reference" href="../../_images/import_virtual_appliance_01.png"><img alt="Missing file!" class="align-center" src="../../_images/import_virtual_appliance_01.png" style="width: 80%;" /></a>
+<p>Now find the previously downloaded virtual machine (<code class="docutils literal notranslate"><span class="pre">.ova</span></code>) file in your local
+filesystem, select it and click <code class="docutils literal notranslate"><span class="pre">Next</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/import_virtual_appliance_02.png"><img alt="Missing file!" class="align-center" src="../../_images/import_virtual_appliance_02.png" style="width: 80%;" /></a>
+<p>The next window looks like it is encouraging you to change some settings but
+besides selecting an appropriate <code class="docutils literal notranslate"><span class="pre">Machine</span> <span class="pre">Base</span> <span class="pre">Folder</span></code> and maybe choosing a
+custom <code class="docutils literal notranslate"><span class="pre">Name</span></code> for the machine there is no need to modify anything.</p>
+<a class="reference internal image-reference" href="../../_images/import_virtual_appliance_03.png"><img alt="Missing file!" class="align-center" src="../../_images/import_virtual_appliance_03.png" style="width: 80%;" /></a>
+<p>Now click <code class="docutils literal notranslate"><span class="pre">Import</span></code>. This might take some time depending on the capabilities of
+your machine. It is high time to grab some snacks or a cup of coffee.</p>
+<a class="reference internal image-reference" href="../../_images/import_virtual_appliance_04.png"><img alt="Missing file!" class="align-center" src="../../_images/import_virtual_appliance_04.png" style="width: 80%;" /></a>
+</div>
+<div class="section" id="step-3-starting-the-virtual-machine">
+<h2>Step 3 - Starting the virtual machine<a class="headerlink" href="#step-3-starting-the-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>Once the import has finished a new machine should appear in the list.</p>
+<a class="reference internal image-reference" href="../../_images/main_01.png"><img alt="Missing file!" class="align-center" src="../../_images/main_01.png" style="width: 80%;" /></a>
+<p>Double click it to start the machine. In the very unlikely situation an error
+message is shown instead of a booting Ubuntu please refer to the
+<a class="reference internal" href="../troubleshooting/main_fvp.html#troubleshooting"><span class="std std-ref">troubleshoot</span></a> section.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../usage/main_fvp.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../main.html" class="btn btn-neutral float-left" title="Development Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, ARM CE-OSS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

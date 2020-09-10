@@ -1,0 +1,20 @@
+
+Starting an Arm Fixed Virtual Platform(FVP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Arm Fixed Virtual Platform, FVP, is a simulation system including processor,
+memory and peripherals. FVP gives a great way to start bare metal coding. It
+accepts a software binary built for Armv8-M or Armv8-A architecture and executes
+it like a real hardware. It is very similar to `QEMU <https://www.qemu.org/>`_.
+
+FVP can be started from terminal. Press ``Ctrl + Alt + T`` or use the application
+browser to launch a ``Terminal``.
+Simply type ``FVP_MPS2_Cortex-M0`` and press ``Enter``.
+
+
+.. image:: _images/fvp_01.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+

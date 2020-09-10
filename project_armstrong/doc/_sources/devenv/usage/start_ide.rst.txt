@@ -1,0 +1,29 @@
+
+Starting Arm Development Studio IDE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Press the ``⊞ Windows`` or ``⌘ command`` key and start typing ``ds``.
+You should see ``Arm DS IDE 20...`` popping up. Click on it.
+
+
+.. image:: _images/vm_01.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+``Arm Development Studio IDE`` should start without any problems.
+
+
+.. image:: _images/ds_01.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+Arm DS IDE has a lot of tutorials and videos available.
+It is very much advised to search for materials in the ``Help`` menu first because
+it is very likely that you can find valuable answers there.
+For a small example, it is possible to debug bare metal applications running in
+an FVP instance using Arm DS IDE.
+

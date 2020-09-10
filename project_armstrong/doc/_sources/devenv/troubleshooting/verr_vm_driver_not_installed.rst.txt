@@ -1,0 +1,55 @@
+
+VirtualBox: VERR_VM_DRIVER_NOT_INSTALLED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Encountered on Ubuntu 19.04.
+This is a very unlikely and unfortunate situation.
+
+.. image:: _images/error_01.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+Drop to console and run the following command:
+
+.. code-block:: shell
+
+   $ sudo /sbin/vboxconfig
+
+The command is expected to fail and prints something like this:
+
+.. code-block:: shell
+
+   vboxdrv.sh: failed: Look at /var/log/vbox-setup.log to find out what went wrong.
+
+Now look into the log file and try to find the first error message:
+
+.. code-block:: bash
+
+   $ cat /var/log/vbox-setup.log | grep -m1 "error:"
+
+If the error message is something like ``error: unknown type name ‘__uint128_t’``
+or very similar it might mean that you have to install Linux kernel headers.
+You can check it by running the command below.
+
+.. code-block:: shell
+
+   $ ls /usr/src/linux-headers-$(uname -r) >/dev/null
+   ls: cannot access '/usr/src/linux-headers-5.0.0-38-generic': No such file or directory
+
+If it says so like above you should install the missing headers:
+
+.. code-block:: shell
+
+   $ sudo apt-get install linux-headers-$(uname -r)
+
+Now try to configure VirtualBox® once again:
+
+.. code-block:: shell
+
+   $ sudo /sbin/vboxconfig
+
+It should succeed this time and your system is ready to run the development
+environment.
+

@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Example C project &mdash; Project Armstrong  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python based landing simulator" href="simulator.html" />
+    <link rel="prev" title="System overview" href="system.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Project Armstrong
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story.html">Landing on Europa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_fvp.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example C project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#startup-call-chain">Startup call chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-build-the-project">How to build the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-uart">Configuring UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-links">Useful Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulator.html">Python based landing simulator</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project Armstrong</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Example C project</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/c_project.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="example-c-project">
+<h1>Example C project<a class="headerlink" href="#example-c-project" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the contents of <code class="code docutils literal notranslate"><span class="pre">project</span></code> directory.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">startup/startup.S</span></code>: This assembly file contains the vector table,
+DATA and BSS initialization and a minimal startup code.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">startup/system_init.c</span></code>: This file is a placeholder for your
+initialization code.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fvp.ld</span></code>: This is the linker script which describes the memory layout
+of the microcontroller.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">drivers/*</span></code>: minimal drivers for some peripherals: interrupt and vga.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">rocket/main.c</span></code>: This is the placeholder of your <code class="code docutils literal notranslate"><span class="pre">main</span></code>
+implementation.</p></li>
+</ul>
+<p>With the VGA driver you can print debug messages or draw something nice to the
+FVP UI display.</p>
+<div class="section" id="startup-call-chain">
+<h2>Startup call chain<a class="headerlink" href="#startup-call-chain" title="Permalink to this headline">¶</a></h2>
+<p>After the microcontoller performs a reset it starts executing the code found in
+<code class="code docutils literal notranslate"><span class="pre">startup/startup.S</span></code>. Once DATA and BSS are initialized
+<code class="code docutils literal notranslate"><span class="pre">SystemInit()</span></code> in <code class="code docutils literal notranslate"><span class="pre">startup/system_init.c</span></code> is called. Finally,
+your <code class="code docutils literal notranslate"><span class="pre">main()</span></code> implementation in <code class="code docutils literal notranslate"><span class="pre">rocket/main.c</span></code> is executed.</p>
+</div>
+<div class="section" id="how-to-build-the-project">
+<h2>How to build the project<a class="headerlink" href="#how-to-build-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Building the project is simple with the provided Makefile and the
+pre-configured environment. Open a console, navigate to the <code class="code docutils literal notranslate"><span class="pre">project</span></code>
+folder and type the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> project
+$ make -j4
+</pre></div>
+</div>
+<p>The build is expected to succeed and produces the following important build
+artifacts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rocket.bin</p></li>
+<li><p>rocket.elf</p></li>
+</ul>
+</div></blockquote>
+<p>Should you need to clean all the build artifacts use the commands below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> project
+$ make clean
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-uart">
+<h2>Configuring UART<a class="headerlink" href="#configuring-uart" title="Permalink to this headline">¶</a></h2>
+<p>UART0 is used to communicate with the spacecraft/simulator. <strong>The UART
+peripheral’s</strong> <code class="docutils literal notranslate"><span class="pre">BAUDDIV</span></code> <strong>register must be set to</strong> <code class="docutils literal notranslate"><span class="pre">0xff</span></code> in order be in
+sync with the system.</p>
+<p>It is up to you to implement the UART driver. You can find links to useful
+resources in the next section.</p>
+</div>
+<div class="section" id="useful-links">
+<h2>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://developer.arm.com/docs/100966/latest/">Fixed Virtual Platforms FVP Reference Guide</a></p>
+<p><a class="reference external" href="https://developer.arm.com/ip-products/subsystem/corstone-foundation-ip/cortex-m-system-design-kit">Cortex-M System Design Kit (CMSDK)</a></p>
+<p><a class="reference external" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0479c/DDI0479C_cortex_m_system_design_kit_r1p0_trm.pdf?_ga=2.70414680.955326918.1585047230-367628996.1563815131">Cortex-M System Design Kit Technical Reference Manual</a></p>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>The memory map of UART0 can be found in the FVP manual. Be careful to look at
+the layout for MPS2 and not the ones for Base or VExpress.</p>
+<p><a class="reference external" href="https://developer.arm.com/docs/dui0837/k/programming-reference-for-mps2-fvps/mps2-memory-maps/mps2-memory-map-for-models-with-the-armv8-m-additions">MPS2 - memory map for models with the ARMv8-M additions</a></p>
+<p>The register descriptions of UART0 peripheral can be found in CMSDK.</p>
+<hr class="docutils" />
+<p><em>Copyright (c) 2020, Arm Limited. All rights reserved.</em></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="simulator.html" class="btn btn-neutral float-right" title="Python based landing simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="system.html" class="btn btn-neutral float-left" title="System overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, ARM CE-OSS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

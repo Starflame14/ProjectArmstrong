@@ -1,0 +1,87 @@
+.. _installation:
+
+Installation
+^^^^^^^^^^^^
+
+Read on to learn all you need to do to kickstart the environment.
+Just for the reference, the following step-by-step guide was tested on
+
+* Ubuntu 19.04,
+* macOS Catalina 10.15.3 and
+* Windows 10
+
+platforms.
+
+Step 1 - Installing VirtualBox
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Get `ORACLE® VM VirtualBox® version 6.0.16 <https://download.virtualbox.org/virtualbox/6.0.16/>`_
+for your preferred platform and follow the installation instructions.
+It is advised to use installers, if available.
+
+You are **not** required to install ``Oracle® VM VirtualBox® Extension Pack`` for
+the base setup. Of course, you can install it if you wish so but make sure you
+read and understand its
+`license <https://www.virtualbox.org/wiki/VirtualBox_PUEL>`_.
+
+Step 2 - Importing the virtual machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After ``VirtualBox®`` installed, download the appliance file using the following
+`torrent file <https://www.projectarmstrong.hu/app/data/2020/arm_hackathon_ova.torrent>`_.
+
+Start ``VirtualBox®`` and click ``File -> Import Appliance...`` or press ``CTRL+I``.
+You should see a window similar to the one in the image below.
+There is no need to go ``Expert Mode``\ , just saying.
+
+.. image:: _images/import_virtual_appliance_01.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+Now find the previously downloaded virtual machine (\ ``.ova``\ ) file in your local
+filesystem, select it and click ``Next``.
+
+
+.. image:: _images/import_virtual_appliance_02.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+The next window looks like it is encouraging you to change some settings but
+besides selecting an appropriate ``Machine Base Folder`` and maybe choosing a
+custom ``Name`` for the machine there is no need to modify anything.
+
+
+.. image:: _images/import_virtual_appliance_03.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+Now click ``Import``. This might take some time depending on the capabilities of
+your machine. It is high time to grab some snacks or a cup of coffee.
+
+
+.. image:: _images/import_virtual_appliance_04.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+Step 3 - Starting the virtual machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once the import has finished a new machine should appear in the list.
+
+
+.. image:: _images/main_01.png
+    :width: 80%
+    :align: center
+    :alt: Missing file!
+
+
+Double click it to start the machine. In the very unlikely situation an error
+message is shown instead of a booting Ubuntu please refer to the
+:ref:`troubleshoot <troubleshooting>` section.

@@ -1,0 +1,89 @@
+.. _python-based-simulator:
+
+Python based landing simulator
+==============================
+
+The development package comes with a landing simulator written in Python.
+You can think of it as the conductor of the whole game.
+
+The landing simulator has a single entry point
+:code:`simulator/run_lunar_lander.py`.
+
+Command line parameters
+^^^^^^^^^^^^^^^^^^^^^^^
+
+To find out what arguments the landing simulator supports type
+:code:`run_lunar_lander.py --help`.
+Many arguments have default values which should work in most cases.
+However, some arguments are required to be passed explicitly:
+
+* :code:`--firmware`: you would usually want to pass :code:`project/rocket.bin`
+  after building your C project.
+* :code:`--fvp`: the path to the FVP executable is expected.
+* :code:`--gameargs`: you can pass various arguments to
+  :code:`simulator/game/lunarlander/lunarlander.py` with this option.
+  The argument has to be a single, double-quoted string.
+
+Game arguments
+^^^^^^^^^^^^^^
+
+To get a list of available game arguments type
+:code:`simulator/run_lunar_lander.py --gameargs "--help --round ."`
+The :code:`--round` is a mandatory argument, it specifies which map to use
+for the simulation.
+
+Debugging
+^^^^^^^^^
+
+The option :code:`--debug` lets you create a new FVP instance which will wait
+for a debugger to be connected. This is the preferred way of debugging your
+code which is executed in FVP.
+
+Round description
+^^^^^^^^^^^^^^^^^
+
+Rounds are represented in JSON files. These files describe the terrain where
+the mission has to find landing zones. Such a JSON file has four main sections:
+
+* Reference to the related map which is in :code:`PNG` format.
+* Maximum number of allowed ticks during which the mission has to be completed.
+* List of landing zones with their coordinates and values.
+* Initial inertial parameters of the spaceship, such as velocity, gravity, etc.
+
+Map format
+^^^^^^^^^^
+
+Each map is a :code:`PNG` file of 512x128 pixels (width x height).
+White pixels represent space while everything else should be treated as ground.
+In every column there is at least one pixel which is not white.
+Height in a column is defined as the topmost non-white pixel.
+Around a landing pad there is always a plain stretching at least +-2 pixels
+in horizontal direction.
+
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+In case the simulation stops unexpectedly please look into the log file.
+By default logs are sent to :code:`stderr` but you can redirect it with
+:code:`--logfile` parameter.
+
+The log will contain all the exceptions encountered.
+
+.. automodule:: fvp.fvpconnector
+   :members:
+
+.. automodule:: fvp.fvprunner
+   :members:
+
+.. automodule:: game.lunarlander.lunarlander
+   :members:
+
+.. automodule:: game.gamemanager
+   :members:
+
+.. automodule:: game.log
+   :members:
+
+--------------
+
+*Copyright (c) 2020, Arm Limited. All rights reserved.*

@@ -1,0 +1,13 @@
+
+VirtualBox: VERR_NEM_VM_CREATE_FAILED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are mainly two reasons for this:
+
+
+* **VT-x/AMD-V is not enabled**\ : please reboot your machine and enter BIOS.
+  Check that you have ``VT-x/AMD-V`` enabled.
+
+* **Running on Windows Hyper-V is enabled**\ : you need to disable Hyper-V.
+  Follow the instructions described `here <https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-the-hyper-v-role-through-settings>`_.
+

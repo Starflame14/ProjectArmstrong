@@ -1,0 +1,17 @@
+
+VirtualBox: Appliance import failed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If for some reason the import of the appliance (\ ``.ova``\ ) file failed because
+some other reasons than the ones discussed above, you can still try to add
+the virtual machine image manually. To do this, first you have to download
+the image using
+`this torrent <https://www.projectarmstrong.hu/app/data/2020/arm_hackathon_zip.torrent>`_.
+Unpack its content and you will have an ``arm_hackathon`` folder with several
+files inside.
+
+Start ``VirtualBox®`` and click ``Machine -> Add...`` or press ``CTRL+A``.
+Select the ``arm_hackathon.vbox`` file from the previously mentioned
+``arm_hackathon`` folder. Click ``Open``.
+
+A new virtual machine ``arm_hackathon`` will be created.

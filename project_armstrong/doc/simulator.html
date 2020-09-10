@@ -1,0 +1,1075 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python based landing simulator &mdash; Project Armstrong  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Example C project" href="c_project.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Project Armstrong
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story.html">Landing on Europa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_fvp.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_project.html">Example C project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python based landing simulator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-parameters">Command line parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#game-arguments">Game arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#round-description">Round description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map-format">Map format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fvp-connector">FVP connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fvp-runner">FVP runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lunar-lander">Lunar Lander</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#game-manager">Game Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log">Log</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project Armstrong</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Python based landing simulator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/simulator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-based-landing-simulator">
+<span id="python-based-simulator"></span><h1>Python based landing simulator<a class="headerlink" href="#python-based-landing-simulator" title="Permalink to this headline">¶</a></h1>
+<p>The development package comes with a landing simulator written in Python.
+You can think of it as the conductor of the whole game.</p>
+<p>The landing simulator has a single entry point
+<code class="code docutils literal notranslate"><span class="pre">simulator/run_lunar_lander.py</span></code>.</p>
+<div class="section" id="command-line-parameters">
+<h2>Command line parameters<a class="headerlink" href="#command-line-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To find out what arguments the landing simulator supports type
+<code class="code docutils literal notranslate"><span class="pre">run_lunar_lander.py</span> <span class="pre">--help</span></code>.
+Many arguments have default values which should work in most cases.
+However, some arguments are required to be passed explicitly:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">--firmware</span></code>: you would usually want to pass <code class="code docutils literal notranslate"><span class="pre">project/rocket.bin</span></code>
+after building your C project.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">--fvp</span></code>: the path to the FVP executable is expected.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">--gameargs</span></code>: you can pass various arguments to
+<code class="code docutils literal notranslate"><span class="pre">simulator/game/lunarlander/lunarlander.py</span></code> with this option.
+The argument has to be a single, double-quoted string.</p></li>
+</ul>
+</div>
+<div class="section" id="game-arguments">
+<h2>Game arguments<a class="headerlink" href="#game-arguments" title="Permalink to this headline">¶</a></h2>
+<p>To get a list of available game arguments type
+<code class="code docutils literal notranslate"><span class="pre">simulator/run_lunar_lander.py</span> <span class="pre">--gameargs</span> <span class="pre">&quot;--help</span> <span class="pre">--round</span> <span class="pre">.&quot;</span></code>
+The <code class="code docutils literal notranslate"><span class="pre">--round</span></code> is a mandatory argument, it specifies which map to use
+for the simulation.</p>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>The option <code class="code docutils literal notranslate"><span class="pre">--debug</span></code> lets you create a new FVP instance which will wait
+for a debugger to be connected. This is the preferred way of debugging your
+code which is executed in FVP.</p>
+</div>
+<div class="section" id="round-description">
+<h2>Round description<a class="headerlink" href="#round-description" title="Permalink to this headline">¶</a></h2>
+<p>Rounds are represented in JSON files. These files describe the terrain where
+the mission has to find landing zones. Such a JSON file has four main sections:</p>
+<ul class="simple">
+<li><p>Reference to the related map which is in <code class="code docutils literal notranslate"><span class="pre">PNG</span></code> format.</p></li>
+<li><p>Maximum number of allowed ticks during which the mission has to be completed.</p></li>
+<li><p>List of landing zones with their coordinates and values.</p></li>
+<li><p>Initial inertial parameters of the spaceship, such as velocity, gravity, etc.</p></li>
+</ul>
+</div>
+<div class="section" id="map-format">
+<h2>Map format<a class="headerlink" href="#map-format" title="Permalink to this headline">¶</a></h2>
+<p>Each map is a <code class="code docutils literal notranslate"><span class="pre">PNG</span></code> file of 512x128 pixels (width x height).
+White pixels represent space while everything else should be treated as ground.
+In every column there is at least one pixel which is not white.
+Height in a column is defined as the topmost non-white pixel.
+Around a landing pad there is always a plain stretching at least +-2 pixels
+in horizontal direction.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>In case the simulation stops unexpectedly please look into the log file.
+By default logs are sent to <code class="code docutils literal notranslate"><span class="pre">stderr</span></code> but you can redirect it with
+<code class="code docutils literal notranslate"><span class="pre">--logfile</span></code> parameter.</p>
+<p>The log will contain all the exceptions encountered.</p>
+<span class="target" id="module-fvp.fvpconnector"></span><div class="section" id="fvp-connector">
+<h3>FVP connector<a class="headerlink" href="#fvp-connector" title="Permalink to this headline">¶</a></h3>
+<p>The module is responsible for connecting to the FVP over TCP for generic data transmission.
+On the FVP side of the TCP port the connection is forwarded to the UART modules so basically
+this module acts like transparent connection to the UART module of the FVP.</p>
+<dl class="class">
+<dt id="fvp.fvpconnector.FvpConnector">
+<em class="property">class </em><code class="sig-prename descclassname">fvp.fvpconnector.</code><code class="sig-name descname">FvpConnector</code><a class="headerlink" href="#fvp.fvpconnector.FvpConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for connecting to the FVP over TCP.</p>
+<dl class="simple">
+<dt>Constants:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RETRY_COUNT</span></code> - Retry count of connecting to the FVP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RETRY_PERIOD</span></code> - Delay between connection attempts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX_IDLE_TIME</span></code> - Maximum idle time between messages</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="fvp.fvpconnector.FvpConnector.connect">
+<code class="sig-name descname">connect</code><span class="sig-paren">(</span><em class="sig-param">host</em>, <em class="sig-param">port</em><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvpconnector.FvpConnector.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function tries to connect the FVP multiple times according to the contants of the
+class.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>host (str): Hostname of the FVP running station</p></li>
+<li><p>port (int): TCP port number of the FVP</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvpconnector.FvpConnector.has_connect_timed_out">
+<code class="sig-name descname">has_connect_timed_out</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvpconnector.FvpConnector.has_connect_timed_out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if the initial connecting phase has timed out.
+In debug mode it always returns False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvpconnector.FvpConnector.recv">
+<code class="sig-name descname">recv</code><span class="sig-paren">(</span><em class="sig-param">length</em><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvpconnector.FvpConnector.recv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives data from FVP.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>length (int): The exact amount of data to be received</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvpconnector.FvpConnector.send">
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvpconnector.FvpConnector.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends data to the FVP.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>data (bytes): Data to send</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvpconnector.FvpConnector.set_debug_mode">
+<code class="sig-name descname">set_debug_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvpconnector.FvpConnector.set_debug_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function sets the debug_mode flag to True. This disables all timeouts in the
+communication.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-fvp.fvprunner"></span><div class="section" id="fvp-runner">
+<h3>FVP runner<a class="headerlink" href="#fvp-runner" title="Permalink to this headline">¶</a></h3>
+<p>This module is responsible for running FVP models.</p>
+<dl class="class">
+<dt id="fvp.fvprunner.FvpRunner">
+<em class="property">class </em><code class="sig-prename descclassname">fvp.fvprunner.</code><code class="sig-name descname">FvpRunner</code><span class="sig-paren">(</span><em class="sig-param">executable</em>, <em class="sig-param">real_time_fvp</em>, <em class="sig-param">firmware</em><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvprunner.FvpRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class is responsible for starting the FVP. It implements <code class="docutils literal notranslate"><span class="pre">threading.Thread</span></code> and the FVP
+is started as a subprocess from a separate thread. After starting the subprocess the thread
+handles the logging of the FVP stdout and stderr.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>executable (str): Path of the FVP executable</p></li>
+<li><p>firmware (str): Path of the firmware which will be loaded to the 0x0 address</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="fvp.fvprunner.FvpRunner.add_option">
+<code class="sig-name descname">add_option</code><span class="sig-paren">(</span><em class="sig-param">option</em><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvprunner.FvpRunner.add_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends an option to FVP command line.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>option (str): Option string</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvprunner.FvpRunner.kill">
+<code class="sig-name descname">kill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvprunner.FvpRunner.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops the FVP process and waits the thread to join.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvprunner.FvpRunner.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvprunner.FvpRunner.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function of the FVP runner thread which starts the FVP process.
+It also forwards the stdout/stderr of the FVP to the log.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fvp.fvprunner.FvpRunner.set_debug_mode">
+<code class="sig-name descname">set_debug_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fvp.fvprunner.FvpRunner.set_debug_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables CADI debug server for debugging with ARM DS.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-game.lunarlander.lunarlander"></span><div class="section" id="lunar-lander">
+<h3>Lunar Lander<a class="headerlink" href="#lunar-lander" title="Permalink to this headline">¶</a></h3>
+<p>Classic Lunar Lander game implementation for FVP.
+See <a class="reference external" href="http://moonlander.seb.ly/">http://moonlander.seb.ly/</a> for inspiration.</p>
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander">
+<em class="property">class </em><code class="sig-prename descclassname">game.lunarlander.lunarlander.</code><code class="sig-name descname">LunarLander</code><span class="sig-paren">(</span><em class="sig-param">argv</em>, <em class="sig-param">fvpconnector</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#game.gamemanager.GameManager" title="game.gamemanager.GameManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">game.gamemanager.GameManager</span></code></a> implementation of the Lunar Lander. This class and its
+subclasses implement the communication layer and the physics of the game.</p>
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu">
+<em class="property">class </em><code class="sig-name descname">Imu</code><span class="sig-paren">(</span><em class="sig-param">initial_imu</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class simulates the kinetic behavior of the spacecraft. The initial inertial state is
+read from the argument and extended by zero as an angular acceleration and angular speed.
+The state of the spacecraft is updated by the tick function.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>initial_imu (dict): Initial position and velocity values. The initial y value of
+the acceleration is considered to be the gravity which is constant during the flight.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu.limit_thrusts">
+<code class="sig-name descname">limit_thrusts</code><span class="sig-paren">(</span><em class="sig-param">thrust</em>, <em class="sig-param">rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu.limit_thrusts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limits the thrust and rotational thrust into the valid range and logs invalid values.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>thrust (Scalar): Thrust value</p></li>
+<li><p>rotate (Scalar): Rotational thrust value</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu.pack">
+<code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packs the acceleration vector and the angular acceleration into the packet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu.pack_all">
+<code class="sig-name descname">pack_all</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu.pack_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packs the position, velocity and acceleration vectors and the angle, angular speed and
+angular acceleration scalars into the packet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu.tick">
+<code class="sig-name descname">tick</code><span class="sig-paren">(</span><em class="sig-param">thrust</em>, <em class="sig-param">rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu.tick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Periodic update function of the inertial system. First it updates the angle then the
+position using the updated angle and the thrust. The values are limited internally.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>thrust (Scalar): Thrust force</p></li>
+<li><p>rotate (Scalar): Rotating force</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu.validate_landing_angle">
+<code class="sig-name descname">validate_landing_angle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu.validate_landing_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the landing angle is within the boundaries.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Imu.validate_landing_velocity">
+<code class="sig-name descname">validate_landing_velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Imu.validate_landing_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the landing velocity components are within the boundaries.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.LandingZone">
+<em class="property">class </em><code class="sig-name descname">LandingZone</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.LandingZone" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class represents a landing zone by its X coordinate and its score multiplier.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>x (int): X coordinate of the landing zone (0-511)</p></li>
+<li><p>value (int): Score multiplier</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.LandingZone.get_value">
+<code class="sig-name descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.LandingZone.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the value of the landing zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.LandingZone.get_x">
+<code class="sig-name descname">get_x</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.LandingZone.get_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the X coordinate of the landing zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.LandingZone.pack">
+<code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.LandingZone.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the landing zone to the packet.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map">
+<em class="property">class </em><code class="sig-name descname">Map</code><span class="sig-paren">(</span><em class="sig-param">file</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the map by storing the height for each X coordinate. It loads the map from a .png
+file. Its size must be 512x128 pixels. It determines the height in each column by getting
+the Y coordinate of the top pixel having different color than white. Each column must have
+at least one non-white pixel. A non-white pixel in the bottom row means <code class="docutils literal notranslate"><span class="pre">0</span></code> value and in
+the top row it means <code class="docutils literal notranslate"><span class="pre">127</span></code>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>file (str): Path of the map image</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map.check_boundaries">
+<code class="sig-name descname">check_boundaries</code><span class="sig-paren">(</span><em class="sig-param">position</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map.check_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the position is within the boundaries of the map.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>position (Vector): Position to check</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map.check_line">
+<code class="sig-name descname">check_line</code><span class="sig-paren">(</span><em class="sig-param">position_start</em>, <em class="sig-param">position_end</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map.check_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function checks if the line between two coordinates would hit the ground.
+By converting each coordinate on the path to booleans indicate ground the list should
+contain zero or one raising edge. This means the spacecraft either flew in space during
+the entire tick or it touched the ground. In the second case futher checks should
+validate if the speed, angle, etc. all were in the safe range.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>position_start (Vector): staring position</p></li>
+<li><p>position_end (Vector): ending position</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map.get_height">
+<code class="sig-name descname">get_height</code><span class="sig-paren">(</span><em class="sig-param">x_coord</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the height value for an X coordinate.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>x_coord (int): X coordinate (0-511)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map.is_ground">
+<code class="sig-name descname">is_ground</code><span class="sig-paren">(</span><em class="sig-param">position</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map.is_ground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the position is ground.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>position (Vector): Position to check</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map.pack">
+<code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the map into a Packet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Map.validate_landing_zones">
+<code class="sig-name descname">validate_landing_zones</code><span class="sig-paren">(</span><em class="sig-param">landing_zones</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Map.validate_landing_zones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the landing zones has clearances on both sides.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>landing_zones (LandingZone[]): Landing zones</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet">
+<em class="property">class </em><code class="sig-name descname">Packet</code><span class="sig-paren">(</span><em class="sig-param">data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a builder class of packets used between the simulator and FVP.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>1..n</p></td>
+<td><p>n + 1</p></td>
+</tr>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>Data</p></td>
+<td><p>Checksum</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt>Packet fields:</dt><dd><ul class="simple">
+<li><p>Type: The packet type is defined by enum values of
+<a class="reference internal" href="#game.lunarlander.lunarlander.LunarLander.PacketType" title="game.lunarlander.lunarlander.LunarLander.PacketType"><code class="xref py py-class docutils literal notranslate"><span class="pre">game.lunarlander.lunarlander.LunarLander.PacketType</span></code></a>.</p></li>
+<li><p>Data: Type specific data. The length of the data field is fixed and specific the packet
+type and can be zero.</p></li>
+<li><p>Checksum: Type and Data fields XOR-ed into a byte and gets inverted. The complete
+message XOR-ed should return 0xff.</p></li>
+</ul>
+</dd>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>data (bytes): Optional parameter for building packet from raw data.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.add_byte">
+<code class="sig-name descname">add_byte</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.add_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appens an 8 bit integer value to the packet.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>value (int): Byte</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.add_data">
+<code class="sig-name descname">add_data</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.add_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends data to end of the packet and updates the checksum. It can be called multiple
+times on the same packet.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>data (bytes): Packet data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.add_packet_type">
+<code class="sig-name descname">add_packet_type</code><span class="sig-paren">(</span><em class="sig-param">packet_type</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.add_packet_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the packet type to the start of the packet.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>packet_type (PacketType): Packet type enum value</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.add_short">
+<code class="sig-name descname">add_short</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.add_short" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appens a 16 bit integer value to the packet. Uses little-endian mode.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>value (int): Integer value</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.get_data">
+<code class="sig-name descname">get_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the raw packet data with the checksum included.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.get_short">
+<code class="sig-name descname">get_short</code><span class="sig-paren">(</span><em class="sig-param">offset</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.get_short" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a 16 bit integer value from the packet. Uses little-endian mode.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>offset (int): Offset in the data field</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Packet.is_valid">
+<code class="sig-name descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Packet.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the checksum of the message.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.PacketType">
+<em class="property">class </em><code class="sig-name descname">PacketType</code><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.PacketType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an enum for the packet types.</p>
+<dl class="simple">
+<dt>Packet types:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MAP</span></code>: Height map data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LANDING_ZONES</span></code>: List of landing zones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INITIAL_IMU_STATE</span></code>: Initial inertial state of the spacecraft</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">START_LANDING</span></code>: Start landing process by confirming end of handshake</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMU_UPDATE</span></code>: Update inertial measurement unit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SET_THRUST</span></code>: Set the thrust values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code>: Error message</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar">
+<em class="property">class </em><code class="sig-name descname">Scalar</code><span class="sig-paren">(</span><em class="sig-param">floating_value=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar" title="Permalink to this definition">¶</a></dt>
+<dd><p>The values are represented by fixed point rational numbers. Each number has 10 bits for
+the integer part and 6 bits for the fraction. The values are signed.
+Internally it stores the value as a python integer so it uses more than 16 bits for
+negative numbers. Do not modify the internal value externally.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 33%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>…</p></td>
+<td><p>6</p></td>
+<td><p>5</p></td>
+<td><p>…</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>Integer bits</p></td>
+<td colspan="3"><p>Fractional bits</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt>Examples:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0x7fff</span></code> = <cite>511.984375</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0x0001</span></code> = <cite>0.015625</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0x0000</span></code> = <cite>0.0</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0xffff</span></code> = <cite>-0.015625</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0x8000</span></code> = <cite>-512</cite></p></li>
+</ul>
+</dd>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>floating_value (float): Floating point initial value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds another scalar to the object with overflow checking.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.add_unsafe">
+<code class="sig-name descname">add_unsafe</code><span class="sig-paren">(</span><em class="sig-param">scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.add_unsafe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add another scalar to the object without checking for an overflow.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.check_value">
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param">source</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.check_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value store in the class is valid. Otherwire it raises an exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.get_float_value">
+<code class="sig-name descname">get_float_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.get_float_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the value as a floating point number.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.multiply">
+<code class="sig-name descname">multiply</code><span class="sig-paren">(</span><em class="sig-param">scalar</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiplies the object with another scalar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.pack">
+<code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packs the scalar into a packet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Scalar.unpack">
+<code class="sig-name descname">unpack</code><span class="sig-paren">(</span><em class="sig-param">packet</em>, <em class="sig-param">offset</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Scalar.unpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpacks the scalar from a packet at a given offset.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.lunarlander.lunarlander.LunarLander.Vector">
+<em class="property">class </em><code class="sig-name descname">Vector</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Two dimensional vector</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>x (float): X coordinate</p></li>
+<li><p>y (float): Y coordinate</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Vector.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">vector</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Vector.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add operator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>vector (Vector): Vector to add</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Vector.add_unsafe">
+<code class="sig-name descname">add_unsafe</code><span class="sig-paren">(</span><em class="sig-param">vector</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Vector.add_unsafe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds another vector to the object without checking for an overflow.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>vector (Vector): Vector to add</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.Vector.pack">
+<code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.Vector.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packs the vector into a packet.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.evaluate_landing">
+<code class="sig-name descname">evaluate_landing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.evaluate_landing" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>The function checks each condition at landing.</dt><dd><ul class="simple">
+<li><p>Velocity component limits</p></li>
+<li><p>Angle limits</p></li>
+<li><p>Distance from landing zones</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.get_results">
+<code class="sig-name descname">get_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.get_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of the game as a dict.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.handshake">
+<code class="sig-name descname">handshake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.handshake" title="Permalink to this definition">¶</a></dt>
+<dd><p>The handshake function handles the initial packet exchange. It can respond to the
+following requests. The function sends responses on requests. The same request can be
+send multiple times except <code class="docutils literal notranslate"><span class="pre">START_LANDING</span></code> which initiates the landing process where
+the initial requests are not available anymore.
+If an invalid packet was received by this function (i.e. it has checksum error) it sends
+and <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> packet as a response.</p>
+<dl class="simple">
+<dt>Packet types:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MAP</span></code>: Requesting height map</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LANDING_ZONES</span></code>: Requesting landing zones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INITIAL_IMU_STATE</span></code>: Requesting inertial state</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">START_LANDING</span></code>: Starting the landing process</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.receive_data">
+<code class="sig-name descname">receive_data</code><span class="sig-paren">(</span><em class="sig-param">length</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.receive_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives data with the given length and handles exception propagation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.receive_packet">
+<code class="sig-name descname">receive_packet</code><span class="sig-paren">(</span><em class="sig-param">length</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.receive_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives a packet from the FVP with the given length including packet type,
+data and checksum.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.send_error_packet">
+<code class="sig-name descname">send_error_packet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.send_error_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an error packet to the FVP.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.send_packet">
+<code class="sig-name descname">send_packet</code><span class="sig-paren">(</span><em class="sig-param">packet</em><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.send_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a packet to the FVP.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.lunarlander.lunarlander.LunarLander.tick">
+<code class="sig-name descname">tick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.lunarlander.lunarlander.LunarLander.tick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Periodic update function of the game. It handles the <code class="docutils literal notranslate"><span class="pre">IMU_UPDATE</span></code> and <code class="docutils literal notranslate"><span class="pre">SET_THRUST</span></code>
+messages and updates the IMU according to them. It also checks the completion and error
+conditions.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-game.gamemanager"></span><div class="section" id="game-manager">
+<h3>Game Manager<a class="headerlink" href="#game-manager" title="Permalink to this headline">¶</a></h3>
+<p>Main module of the project which controls the workflow.</p>
+<dl class="exception">
+<dt id="game.gamemanager.GameException">
+<em class="property">exception </em><code class="sig-prename descclassname">game.gamemanager.</code><code class="sig-name descname">GameException</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">mode</em>, <em class="sig-param">private_extra=''</em><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Game specific exception class. It contains a public and a private message to avoid leaking
+information from the testing environment. The private data can be used to print into the log.
+The class has two modes: private or public. In private mode it only shows an error ID publicly
+and puts the details of the error into the private message. The public mode prints the message
+but it can still have extra private information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>message (str): Error message</p></li>
+<li><p>mode (int): <code class="docutils literal notranslate"><span class="pre">MODE_PRIVATE</span></code> or <code class="docutils literal notranslate"><span class="pre">MODE_PUBLIC</span></code></p></li>
+<li><p>private_extra (str): Extra private information</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="game.gamemanager.GameException.get_private_message">
+<code class="sig-name descname">get_private_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameException.get_private_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the private data of the exception which includes a traceback</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.gamemanager.GameManager">
+<em class="property">class </em><code class="sig-prename descclassname">game.gamemanager.</code><code class="sig-name descname">GameManager</code><span class="sig-paren">(</span><em class="sig-param">game</em><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class managed the whole workflow of the FVP based games.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>game (class): Class reference of the current game</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="class">
+<dt id="game.gamemanager.GameManager.Game">
+<em class="property">class </em><code class="sig-name descname">Game</code><a class="headerlink" href="#game.gamemanager.GameManager.Game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for FVP based games</p>
+<dl class="method">
+<dt id="game.gamemanager.GameManager.Game.get_results">
+<em class="property">abstract </em><code class="sig-name descname">get_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.Game.get_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the results in of the game: score, message</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.Game.handshake">
+<em class="property">abstract </em><code class="sig-name descname">handshake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.Game.handshake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sending initial messages to FVP and accepting handshake. Return True while in handshake
+phase.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.Game.tick">
+<em class="property">abstract </em><code class="sig-name descname">tick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.Game.tick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Periodic tick function of the game. Returns True while the game is running.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.add_round_result">
+<code class="sig-name descname">add_round_result</code><span class="sig-paren">(</span><em class="sig-param">score</em>, <em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.add_round_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the result of a round to the list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.main">
+<code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Application entry point. The flow of the function looks like as follow:</p>
+<ul class="simple">
+<li><p>Starting FVP if the FVP and the firmware paths are set</p></li>
+<li><p>Connecting to FVP</p></li>
+<li><p>Calling the <code class="docutils literal notranslate"><span class="pre">handshake</span></code> function of the game implementation</p></li>
+<li><p>Calling the <code class="docutils literal notranslate"><span class="pre">tick</span></code> function in a loop while it returns True</p></li>
+<li><p>Stopping FVP if it was started by the <code class="docutils literal notranslate"><span class="pre">GameManager</span></code></p></li>
+<li><p>Printing game results to the standard output</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.parse_args">
+<code class="sig-name descname">parse_args</code><span class="sig-paren">(</span><em class="sig-param">argv</em><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parsing command line arguments. Run the simulator with <code class="docutils literal notranslate"><span class="pre">--help</span></code> to get the actual
+arguments.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>argv (obj): Argument list (i.e. <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.print_args">
+<code class="sig-name descname">print_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.print_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs the command line arguments</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.print_results">
+<code class="sig-name descname">print_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.print_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints results in a standard JSON format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.gamemanager.GameManager.wait_with_timeout">
+<code class="sig-name descname">wait_with_timeout</code><span class="sig-paren">(</span><em class="sig-param">start_time</em>, <em class="sig-param">function</em><span class="sig-paren">)</span><a class="headerlink" href="#game.gamemanager.GameManager.wait_with_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a function while it returns true and checks the timeout after each call.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-game.log"></span><div class="section" id="log">
+<h3>Log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
+<p>Module for logging messages from the simulator.</p>
+<dl class="class">
+<dt id="game.log.Log">
+<em class="property">class </em><code class="sig-prename descclassname">game.log.</code><code class="sig-name descname">Log</code><a class="headerlink" href="#game.log.Log" title="Permalink to this definition">¶</a></dt>
+<dd><p>System log class. The default target of log messages is the standard error pipe.</p>
+<dl class="method">
+<dt id="game.log.Log.log">
+<em class="property">static </em><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#game.log.Log.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs message along a timestamp. The timestamp is the amount of time from the start of the
+software. The function is thread safe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.log.Log.set_file">
+<em class="property">static </em><code class="sig-name descname">set_file</code><span class="sig-paren">(</span><em class="sig-param">log_file</em><span class="sig-paren">)</span><a class="headerlink" href="#game.log.Log.set_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the log file object which will be the output file of the log system.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>log_file (obj): File object</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<p><em>Copyright (c) 2020, Arm Limited. All rights reserved.</em></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="c_project.html" class="btn btn-neutral float-left" title="Example C project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, ARM CE-OSS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
